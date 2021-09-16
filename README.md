@@ -1,7 +1,8 @@
 # Aplikasi Pencatatan Hutang Warung
 
-ini merupakan aplikasi pencatatan dan penghutungan hutang piutang.
+-ini merupakan aplikasi pencatatan dan penghutungan hutang piutang.
 
-menggunakan PHP dalam pembuatann aplikasi.
+-menggunakan PHP dalam pembuatann aplikasi.
+
 
 ## MASIH DALAM PENGEMBANGAN DAN PERBAIKAN

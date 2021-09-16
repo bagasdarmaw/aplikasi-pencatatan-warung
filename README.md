@@ -2,6 +2,6 @@
 
 ini merupakan aplikasi pencatatan dan penghutungan hutang piutang.
 
-menggunakan PHP dalam pengembangan aplikasi.
+menggunakan PHP dalam pembuatann aplikasi.
 
 ## MASIH DALAM PENGEMBANGAN DAN PERBAIKAN

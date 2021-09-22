@@ -1,5 +1,5 @@
 <center>
-    <h2>Aplilasi Warung</h2>
+    <h2>Aplikasi Warung</h2>
 </center>
 <br>
 <nav class="nav gap-2 ">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Sep 2021 pada 05.17
+-- Waktu pembuatan: 23 Sep 2021 pada 15.47
 -- Versi server: 10.4.16-MariaDB
 -- Versi PHP: 7.4.12
 
@@ -35,6 +35,15 @@ CREATE TABLE `barang` (
   `harga_jual_satuan` varchar(115) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `barang`
+--
+
+INSERT INTO `barang` (`id_barang`, `nama_barang`, `harga_beli`, `harga_jual`, `harga_jual_satuan`) VALUES
+(2, 'Teh Kotak', '67.000', '70.000', '3.500'),
+(3, 'Air Mineral Gunung', '14.600', '17.000', '500'),
+(4, 'Aqua Botol 600ml', '43.440', '45.000', '1.810');
+
 -- --------------------------------------------------------
 
 --
@@ -56,8 +65,7 @@ INSERT INTO `pelanggan` (`id_pelanggan`, `nama`, `alamat`) VALUES
 (2, 'dora', 'blok G'),
 (3, 'yoyo', 'blok G'),
 (4, 'wayan', 'blok F'),
-(5, 'nana', 'bawah'),
-(14, 'mawar', 'G');
+(5, 'nana', 'bawah');
 
 -- --------------------------------------------------------
 
@@ -123,7 +131,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(115) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_barang` int(115) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `pelanggan`

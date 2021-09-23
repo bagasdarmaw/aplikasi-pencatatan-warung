@@ -1,12 +1,13 @@
 <?php
 include 'koneksi.php';
-if (isset($_GET['id_pelanggan'])) {
-    $id_pelanggan = $_GET['id_pelanggan'];
+if (isset($_GET['id_barang'])) {
+    $id_barang = $_GET['id_barang'];
 } else {
     die("Error. No ID Selected!");
 }
 
-$query = "DELETE FROM pelanggan where id_pelanggan=$id_pelanggan";
+
+$query = "DELETE FROM barang where id_barang=$id_barang";
 
 mysqli_query($koneksi, $query);
 

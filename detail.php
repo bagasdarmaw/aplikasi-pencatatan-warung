@@ -1,11 +1,13 @@
 <?php
+include 'src\koneksi.php';
+include 'src\fungsi.php';
+
 if (isset($_GET['id_pelanggan'])) {
     $id_pelanggan = $_GET['id_pelanggan'];
 } else {
     die("Error. No ID Selected!");
 }
-include 'src\koneksi.php';
-include 'src\fungsi.php';
+
 $data = mysqli_query($koneksi, "SELECT * FROM pelanggan where id_pelanggan=$id_pelanggan");
 $row = mysqli_fetch_array($data);
 
@@ -15,7 +17,10 @@ $row = mysqli_fetch_array($data);
 <head>
     <title>Script PHP untuk Menampilkan Data dari Database Derdasarkan Id</title>
     <link rel="stylesheet" href="asset/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="asset/css/datatables.min.css">
+    <link rel="stylesheet" href="asset/css/datatables.css">
+    <link rel="stylesheet" href="asset/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="asset/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="asset/js/jquery.dataTables.js"></script>
 </head>
 
 <body>
@@ -159,6 +164,7 @@ $row = mysqli_fetch_array($data);
                     </div>
                 </div>
 
+                <!-- MODAL BAYAR -->
                 <div class="modal fade" id="modalBayar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -200,7 +206,7 @@ $row = mysqli_fetch_array($data);
 
 
         <script type="text/javascript" src="asset/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="asset/js/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="asset/js/datatables.js"></script>
         <script type="text/javascript" src="asset/js/rupiah.js"></script>
 </body>
 

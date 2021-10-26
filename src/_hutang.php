@@ -21,7 +21,8 @@ if (isset($_POST['simpanHutang'])) {
     $row = mysqli_fetch_array($data);
     $total = $row['jumlah_hutang'] - $row['jumlah_pembayaran'] + $hutang;
 
-    $query = " INSERT INTO transaksi (id_pelanggan, hutang, tanggal, keterangan, total) VALUES ('$id_pelanggan',
+    $query = " INSERT INTO transaksi (id_pelanggan, hutang, tanggal, keterangan, total) VALUES 
+    ('$id_pelanggan',
     '$hutang',
     '$tanggal',
     '$keterangan',

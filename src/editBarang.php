@@ -8,6 +8,7 @@ if (isset($_POST['simpanEdit'])) {
     // ambil data dari form['tabel database']
     $id_barang = $_POST['id_barang'];
     $nama_barang = $_POST['nama_barang'];
+    $id_jenis = $_POST['jenis_barang'];
     $harga_beli = $_POST['harga_beli'];
     $harga_jual = $_POST['harga_jual'];
     $harga_jual_satuan = $_POST['harga_jual_satuan'];
@@ -15,6 +16,7 @@ if (isset($_POST['simpanEdit'])) {
     // querry
     $query = "UPDATE barang SET
 								nama_barang = '$nama_barang',
+                                jenis_barang = '$id_jenis',
 								harga_beli = '$harga_beli',
                                 harga_jual = '$harga_jual',
                                 harga_jual_satuan = '$harga_jual_satuan'

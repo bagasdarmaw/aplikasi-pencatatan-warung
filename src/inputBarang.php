@@ -6,27 +6,32 @@ include 'fungsi.php';
 if (isset($_POST['simpanHarga'])) {
 
     // ambil data dari form['tabel database']
-    $id_barang = $_POST['id_barang'];
     $nama_barang = $_POST['nama_barang'];
+    $id_jenis = $_POST['jenis_barang'];
     $harga_beli = $_POST['harga_beli'];
     $harga_jual = $_POST['harga_jual'];
     $harga_jual_satuan = $_POST['harga_jual_satuan'];
 
     // querry
-    $query = " INSERT INTO barang SET
-								nama_barang = '$nama_barang',
-								harga_beli = '$harga_beli',
-                                harga_jual = '$harga_jual',
-                                harga_jual_satuan = '$harga_jual_satuan'
-								";
+    $query = " INSERT INTO barang (nama_barang, id_jenis, harga_beli, harga_jual, harga_jual_satuan) VALUES 
+    (
+    '$nama_barang', 
+    '$id_jenis', 
+    '$harga_beli', 
+    '$harga_jual',
+    '$harga_jual_satuan')";
 
     // eksekusi query
     $hasil = mysqli_query($koneksi, $query);
-
-
-    echo "<script> 
+    if ($hasil) {
+        echo "<script> 
             alert('Data berhasil ditambah!');
-            window.location = '../barang.php';
-        </script>
-    ";
+            location.replace(document.referrer);
+        </script>";
+    } else {
+        echo "<script>
+    alert('Data GAGAL DIMASUKKAN');
+    window.location = '../barang.php';
+    </script>";
+    }
 }

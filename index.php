@@ -2,6 +2,7 @@
 include 'src\koneksi.php';
 ?>
 
+
 <html lang="en">
 
 <head>
@@ -11,18 +12,9 @@ include 'src\koneksi.php';
 	<script type="text/javascript" src="asset/js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="asset/js/jquery.dataTables.js"></script>
 </head>
-<script type="text/javascript">
-	function deleteconfig() {
-		var tujuan = $(this).attr('id_pelanggan');
-		var hapusin = confirm("Apakah Anda yakin ingin menghapus data ini?");
-		if (hapusin == true) {
-			window.location.href = tujuan;
-		} else {
-			alert("Data Batal dihapus");
-		}
-		return hapusin;
-	}
-</script>
+
+<!-- PILIHAN KONFIRMASI HAPUS DATA -->
+
 
 <body>
 	<div class="container" style="margin-top:3%">
@@ -79,6 +71,16 @@ include 'src\koneksi.php';
 	</div>
 	<script type="text/javascript" src="asset/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="asset/js/datatables.js"></script>
+	<script type="text/javascript">
+		function deleteconfig() {
+			var tujuan = $(this).attr('id_pelanggan');
+			var hapusin = confirm("Apakah Anda yakin ingin menghapus data ini?");
+			if (hapusin == true) {
+				window.location.href = tujuan;
+			}
+			return hapusin;
+		}
+	</script>
 	<script>
 		$('#example').DataTable();
 	</script>

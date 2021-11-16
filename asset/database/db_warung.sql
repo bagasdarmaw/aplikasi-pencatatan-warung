@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2021 at 01:01 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 7.3.29
+-- Waktu pembuatan: 16 Nov 2021 pada 09.37
+-- Versi server: 10.4.16-MariaDB
+-- Versi PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `warung2`
+-- Database: `db_warung`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang`
+-- Struktur dari tabel `barang`
 --
 
 CREATE TABLE `barang` (
@@ -37,7 +37,7 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `barang`
+-- Dumping data untuk tabel `barang`
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `id_jenis`, `harga_beli`, `harga_jual`, `harga_jual_satuan`) VALUES
@@ -275,7 +275,7 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `id_jenis`, `harga_beli`, `har
 (254, 'Chitato lite', 14, '99.000', '105.000', '2.000'),
 (255, 'Milkwat botol besar 130 ml (32)', 5, '75.000', '', '3.000'),
 (256, 'Milkwat botol kecil  65 ml (60)', 5, '', '', '2.000'),
-(257, 'Emping super (5kg)', 13, '257.000', '300.000', '17.500'),
+(257, 'Emping super (5kg)', 13, '257.000', '300.000', '17.005'),
 (258, 'Roma malkis manis 1000 (12x10)', 7, '97.000', '11.000', '1.000'),
 (259, 'Kopiko 78 btl late', 5, '47.000', '', '5.000'),
 (260, 'Super bubur (40)', 6, '97.000', '', '3.000'),
@@ -346,12 +346,13 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `id_jenis`, `harga_beli`, `har
 (325, 'sosis so nice ayam/sapi 21 gr (24)', 7, '18.700', '21.000', '1.000'),
 (326, 'Floredina florida botol 0ranye (12)', 5, '20.850', '32.000', '3.000'),
 (327, 'Head & Shoulder Renceng 10ml (12Lbr)', 2, '9.800', '11.000', '1.000'),
-(328, 'Pulpy orange btl 300 ml (12)', 5, '38.900', '45.000', '4.500');
+(328, 'Pulpy orange btl 300 ml (12)', 5, '38.900', '45.000', '4.500'),
+(334, 'tropikal 3lt', 1, '500.000', '520.000', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_barang`
+-- Struktur dari tabel `jenis_barang`
 --
 
 CREATE TABLE `jenis_barang` (
@@ -360,7 +361,7 @@ CREATE TABLE `jenis_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `jenis_barang`
+-- Dumping data untuk tabel `jenis_barang`
 --
 
 INSERT INTO `jenis_barang` (`id_jenis`, `jenis_barang`) VALUES
@@ -369,22 +370,24 @@ INSERT INTO `jenis_barang` (`id_jenis`, `jenis_barang`) VALUES
 (3, 'kopi'),
 (4, 'permen'),
 (5, 'minuman'),
-(6, 'indomie'),
+(6, 'mie instan'),
 (7, 'jajanan'),
 (8, 'plastik'),
-(9, 'terigu'),
+(9, 'tepung'),
 (10, 'rokok'),
 (11, 'Obat'),
 (12, 'campuran'),
 (13, 'krupuk'),
 (14, 'chiki'),
-(15, 'pembalut&pamper'),
-(16, 'Pembersih');
+(15, 'pampers'),
+(16, 'Pembersih'),
+(17, 'buku & alat tul'),
+(18, 'kosmetik');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pelanggan`
+-- Struktur dari tabel `pelanggan`
 --
 
 CREATE TABLE `pelanggan` (
@@ -394,7 +397,7 @@ CREATE TABLE `pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pelanggan`
+-- Dumping data untuk tabel `pelanggan`
 --
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `nama`, `alamat`) VALUES
@@ -409,7 +412,7 @@ INSERT INTO `pelanggan` (`id_pelanggan`, `nama`, `alamat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -423,7 +426,7 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `transaksi`
+-- Dumping data untuk tabel `transaksi`
 --
 
 INSERT INTO `transaksi` (`id_pelanggan`, `id_hutang`, `tanggal`, `keterangan`, `hutang`, `bayar`, `total`) VALUES
@@ -450,71 +453,71 @@ INSERT INTO `transaksi` (`id_pelanggan`, `id_hutang`, `tanggal`, `keterangan`, `
 --
 
 --
--- Indexes for table `barang`
+-- Indeks untuk tabel `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`),
   ADD KEY `id_jenis` (`id_jenis`);
 
 --
--- Indexes for table `jenis_barang`
+-- Indeks untuk tabel `jenis_barang`
 --
 ALTER TABLE `jenis_barang`
   ADD PRIMARY KEY (`id_jenis`);
 
 --
--- Indexes for table `pelanggan`
+-- Indeks untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`id_pelanggan`);
 
 --
--- Indexes for table `transaksi`
+-- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_hutang`),
   ADD KEY `id_pelanggan` (`id_pelanggan`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `barang`
+-- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(115) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
+  MODIFY `id_barang` int(115) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=335;
 
 --
--- AUTO_INCREMENT for table `jenis_barang`
+-- AUTO_INCREMENT untuk tabel `jenis_barang`
 --
 ALTER TABLE `jenis_barang`
-  MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `pelanggan`
+-- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
   MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `transaksi`
+-- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   MODIFY `id_hutang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `barang`
+-- Ketidakleluasaan untuk tabel `barang`
 --
 ALTER TABLE `barang`
   ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_jenis`) REFERENCES `jenis_barang` (`id_jenis`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `transaksi`
+-- Ketidakleluasaan untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE;

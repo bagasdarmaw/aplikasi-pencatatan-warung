@@ -19,7 +19,7 @@ include 'src\koneksi.php';
 <body>
 	<div class="container" style="margin-top:3%">
 		<div class="row">
-			<div class=" col-md-10 offset-md-2">
+			<div class=" col-md-12">
 				<!-- TITTLE & NAV -->
 				<?php
 				include "nav.php"

@@ -16,7 +16,7 @@ if (isset($_POST['simpanEdit'])) {
     // querry
     $query = "UPDATE barang SET
 								nama_barang = '$nama_barang',
-                                jenis_barang = '$id_jenis',
+                                id_jenis = '$id_jenis',
 								harga_beli = '$harga_beli',
                                 harga_jual = '$harga_jual',
                                 harga_jual_satuan = '$harga_jual_satuan'
@@ -26,9 +26,15 @@ if (isset($_POST['simpanEdit'])) {
     $hasil = mysqli_query($koneksi, $query);
 
 
-    echo "<script> 
-            alert('Data berhasil DIUBAH');
+    if ($hasil) {
+        echo "<script> 
+            alert('Data berhasil diedit!');
             window.location = '../barang.php';
-        </script>
-    ";
+        </script>";
+    } else {
+        echo "<script>
+    alert('Data GAGAL DIEDIT');
+    window.location = '../barang.php';
+    </script>";
+    }
 }

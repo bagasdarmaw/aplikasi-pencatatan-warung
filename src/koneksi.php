@@ -5,7 +5,7 @@ $koneksi = mysqli_connect(
     "localhost",
     "root",
     "",
-    "warung2"
+    "db_warung"
 );
 if (mysqli_connect_errno()) {
     echo "Koneksi Gagal"

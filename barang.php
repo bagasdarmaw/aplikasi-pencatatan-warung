@@ -15,7 +15,7 @@ include 'src\fungsi.php';
 <body>
     <div class="container" style="margin-top:3%">
         <div class="row">
-            <div class=" col-md-10 offset-md-2">
+            <div class=" col-md-12">
                 <?php
                 include "nav.php"
                 ?>
@@ -35,21 +35,21 @@ include 'src\fungsi.php';
                     <thead>
                         <tr>
                             <th width="5%">NO</th>
-                            <th width="29%">Barang</th>
-                            <th width="14%">Kategori</th>
+                            <th width="30%">Barang</th>
+                            <th width="12%">Kategori</th>
                             <th width="12%">Harga Beli</th>
                             <th width="12%">Harga Jual</th>
                             <th width="12%">Harga Jual Satuan</th>
-                            <th width="12%">Opsi</th>
+                            <th width="14%">Opsi</th>
                         </tr>
                         <tr>
                             <th width="5%"></th>
-                            <th width="29%"></th>
+                            <th width="30%"></th>
+                            <th width="12%"></th>
+                            <th width="12%"></th>
+                            <th width="12%"></th>
+                            <th width="12%"></th>
                             <th width="14%"></th>
-                            <th width="12%"></th>
-                            <th width="12%"></th>
-                            <th width="12%"></th>
-                            <th width="12%"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,12 +102,15 @@ include 'src\fungsi.php';
                                                         <div class="mb-3">
                                                             <label class="col-form-label">Kategori</label>
                                                             <select id="jenisBarang" name="jenis_barang" class="form-control" required>
-                                                                <option value="">- Pilih -</option>
                                                                 <?php
-                                                                $sql_kategori = mysqli_query($koneksi, " SELECT * FROM jenis_barang") or die(mysqli_error($koneksi));
+                                                                $sql_kategori = mysqli_query($koneksi, " SELECT * FROM jenis_barang");
                                                                 while ($data_kategori = mysqli_fetch_array($sql_kategori)) {
-                                                                    echo '<option value="' . $data_kategori['id_jenis'] . '">' .
-                                                                        $data_kategori['jenis_barang'] . '</option>';
+                                                                    if ($rw['id_jenis'] == $data_kategori['id_jenis']) {
+                                                                        $select = "selected";
+                                                                    } else {
+                                                                        $select = "";
+                                                                    }
+                                                                    echo "<option value='$data_kategori[id_jenis]' $select>$data_kategori[jenis_barang]</option>";
                                                                 }
                                                                 ?>
                                                             </select>
